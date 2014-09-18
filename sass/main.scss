@@ -1,0 +1,181 @@
+// @import "_reset";
+@import "_snippets_0.0.3";
+@import "_engines";
+@import "_media-queries";
+
+// CORES
+
+$azul_header: #006fa3;
+$azul_mais_claro_1: #059ee6;
+$azul_mais_claro_2: #2886b1;
+$amarelo_dotz: #ffb103;
+$azul_bonus: #3dacbb;
+
+$laranja_tile_title: #e4802e;
+$amarelo_tile_title: #ffbe2d;
+$magenta_tile_title: #903c3c;
+$azul_tile_title: #4da7ae;
+$cinza_tile_title: #8e8f8d;
+
+$faixa_preco_1: #79c1c0;
+$faixa_preco_2: #e9dd74;
+$faixa_preco_3: #f4a175;
+
+$laranja_font_contador: #ffb103;
+
+// TILE DE FILTROS
+
+.tile-filtros-content{@include section(170px); background-color: #fff}
+#container .tile-filtros{width: 440px}
+	.tile-filtros{@include isMobile{display: none};}
+.seletor{position: relative; float: left; width: 392px; margin: 20px 20px;}
+.range-button{width: 100px; height: 40px; position: relative; float: left; background-color: #666; margin-top: 10px; text-align: center; cursor: pointer; color: #fff; font-family: "KlavikaLight-Plain"; font-size: 14px; padding-top: 5px; text-shadow: 0px 0px 8px rgba(0,0,0,0.6); line-height: 17px}
+.range-button span{font-size: 20px;}
+ .range-button-1{@extend .range-button; width: 115px; @include flatButton($faixa_preco_1, mix($faixa_preco_1, #000, 95%)); background-color: $faixa_preco_1; border-radius: 7px 0px 0px 7px;}
+ .range-button-2{@extend .range-button; width: 157px; @include flatButton($faixa_preco_2, mix($faixa_preco_2, #000, 95%)); background-color: $faixa_preco_2}
+ .range-button-3{@extend .range-button; width: 120px; @include flatButton($faixa_preco_3, mix($faixa_preco_3, #000, 95%)); background-color: $faixa_preco_3; border-radius: 0px 7px 7px 0px;}
+  .range-button-1:hover{@include flatButton(mix($faixa_preco_1, #000, 90%), mix($faixa_preco_1, #000, 85%));}
+  .range-button-2:hover{@include flatButton(mix($faixa_preco_2, #000, 90%), mix($faixa_preco_2, #000, 85%));}
+  .range-button-3:hover{@include flatButton(mix($faixa_preco_3, #000, 90%), mix($faixa_preco_3, #000, 85%));}
+  .range-button-1:active{@include flatButton(mix($faixa_preco_1, #000, 85%), mix($faixa_preco_1, #000, 80%));}
+  .range-button-2:active{@include flatButton(mix($faixa_preco_2, #000, 85%), mix($faixa_preco_2, #000, 80%));}
+  .range-button-3:active{@include flatButton(mix($faixa_preco_3, #000, 85%), mix($faixa_preco_3, #000, 80%));}
+.faixa-de-preco-label{font-family: "KlavikaLight-Plain"; font-size: 20px; position: relative; float: left; padding: 20px 10px 0px 20px; color: #8e8f8d;}
+.faixa-de-preco-amount{text-align: center; width: 210px; background-color: #4da7ae; color: #fff; font-family: "KlavikaLight-Plain"; font-size: 16px; border-radius: 6px; padding: 10px; border: 0; margin-left: 20px;}
+
+// CONTENT
+
+body{background-color: #fafafa}
+
+// NOTIFICATION BAR
+
+.notification-bar{@include section(0px); background-color: #f6a81f; @include transition(0.5); cursor: pointer;}
+// .notification-bar:hover{height: 60px; background-color: #96d413}
+.notification-bar-show{height: 40px} .notification-bar-blink{background-color: #d7921b}
+.notification-content-container{@include posCenter(450, 28);}
+ .notification-number{@include rect(30, 20); position: relative; float: left; margin-top: 4px; background-color: #fff; border-radius: 10px; color: #666; text-align: center; line-height: 22px; box-shadow: 0px 0px 4px rgba(0,0,0,0.3);}
+ .notification-text{width: auto; height: 100%; position: relative; float: left; margin-left: 10px; font-family: "KlavikaLight-Plain"; font-size: 15px; color: #fff; line-height: 32px}
+ .notification-text span{text-decoration: underline;}
+
+// HEADER 
+
+.header{@include section(auto); background-color: $azul_header; position: fixed; z-index: 9}
+.header-content{@include rectXCenter(920, 100px); position: relative; float: left;
+	@include BP(1){@include rectXCenter(200, 100px);position: relative; float: left;}
+	@include BP(2){@include rectXCenter(200, 100px);position: relative; float: left;}
+	@include BP(3){@include rectXCenter(400, 100px);position: relative; float: left;}
+	@include BP(4){@include rectXCenter(720, 100px);position: relative; float: left;}
+	@include BP(5){@include rectXCenter(900, 100px);position: relative; float: left;}
+	@include BP(6){@include rectXCenter(1100, 100px);position: relative; float: left;}
+	@include BP(7){@include rectXCenter(1300, 100px);position: relative; float: left;}
+	@include BP(8){@include rectXCenter(1600, 100px);position: relative; float: left;}
+	@include isMobile{height: 50px;};
+}
+.logo-concessionaria{@include posCenter(254, 42);} .logo-concessionaria{@include isMobile{-webkit-transform: scale(0.7);};}
+.search{@include rect(220, 30); position: absolute; left: 0px; top: 32px; border: 2px solid $azul_mais_claro_1; border-radius: 5px; font-family: "KlavikaLight-Plain"; color: $azul_header; text-align: center; box-shadow: 0px 0px 4px rgba(0,0,0,0); @include transition(0.3);}
+ .search:focus{box-shadow: 0px 0px 5px rgba(0,0,0,0.6);} 
+	.search{@include isMobile{display: none};}
+.phone-numbers-container{width: 200px; height: 100%; @include posAright(0, 0); background-color: $azul_mais_claro_2}
+	.phone-numbers-container{@include isMobile{display: none};}
+.phone-numbers{@include posCenter(150, 50); line-height: 13px;} .phone-icon{width: 40px; position: absolute;}
+.phone-number-text{position: relative; float: left; margin-top: 3px; margin-left: 50px; font-family: "KlavikaLight-Plain"; font-size: 14px; color: #fff;}
+
+// TILE PRINCIPAL
+
+.main-tile{@include section(auto); background-color: rgba(0, 0, 0, 0.1); margin-top: 100px;
+	@include isMobile{display: none};}
+
+// TILES DE OFERTA
+
+.tiles-container{@include section(500px); overflow: visible;}
+.tiles-columns-container{@include rectXCenter(920, auto); top: 40px; margin-bottom: 60px;
+	@include BP(2){@include rectXCenter(240, auto);}
+	@include BP(3){@include rectXCenter(440, auto);}
+	@include BP(4){@include rectXCenter(680, auto);}
+	@include BP(5){@include rectXCenter(920, auto);}
+	@include BP(6){@include rectXCenter(1160, auto);}
+	@include BP(7){@include rectXCenter(1400, auto);}
+	@include BP(8){@include rectXCenter(1640, auto);}
+}
+
+.tile-column{@include rectHeightAuto(200); position: relative; float: left; margin-left: 15px; margin-right: 15px;}
+.tile{@include section(auto); width: 200px; margin-bottom: 30px; background-color: #fff; border-radius: 8px; box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+	@include isMobile{width: 240px};}
+// TILE TITLE
+.tile-title{@include section(36px);}
+ .tile-title-1{@extend .tile-title; background-color: $laranja_tile_title;}
+ .tile-title-2{@extend .tile-title; background-color: $azul_tile_title;}
+ .tile-title-3{@extend .tile-title; background-color: $magenta_tile_title;}
+ .tile-title-4{@extend .tile-title; background-color: $cinza_tile_title;}
+.tile-title-text{@include auto; position: absolute; top: 11px; left: 40px; font-family: "KlavikaLight-Plain"; color: #fff; line-height: 17px;}
+.key-icon{width: 26px; position: absolute; left: 4px; top: 1px;}
+.thunder-icon{width: 18px; position: absolute; left: 10px; top: 5px;}
+.warning-icon{width: 23px; position: absolute; left: 8px; top: 7px;}
+.title-car{@include section(36px); background-color: white; font-family: "FuturaDZ-Heavy"; font-size: 20px; text-align: center; line-height: 40px; color: $azul_mais_claro_2; text-transform: uppercase; border-bottom: 3px solid #2886b1;}
+.image-car-container{@include section(200px); background-color: #fff} .image-car{@include posCenter(181, 88);}
+.price-car{@include section(36px);}
+.price-de{@extend .price-car; background-color: #ccc; height: 32px} .price-por{@extend .price-car; background-color: $azul_mais_claro_1}
+.price-type{width: auto; height: 100%; position: absolute; color: #fff; padding: 10px;}
+.price-type-de{@extend .price-type; background-color: #f8f8f8; color: #666; padding: 8px} .price-type-por{@extend .price-type; background-color: #f8f8f8 ; color: $azul_mais_claro_1;}
+.dotz-car{@include section(36px); background-color: $amarelo_dotz; font-family: "FuturaDZ-Heavy"; text-align: center; color: #fff; line-height: 40px; @include bgimg(dotz, png); text-shadow: 2px 2px 6px #000;}
+.dotz-car span{font-size: 25px}
+.bonus-car{@include section(36px); background-color: $azul_bonus; font-family: "FuturaDZ-Heavy"; text-align: center; color: #fff; line-height: 40px; @include bgimg(bonus, png); text-shadow: 2px 2px 6px #000; font-size: 14px}
+.bonus-car span{font-size: 22px}
+.cta-car-container{@include section(60px);}
+.cta-car{@include posCenter(180, 40); background-color: green; @include gradientTB(#a2dd17, #59a400); border-radius: 8px; text-align: center; color: #fff; line-height: 40px; font-family: "KlavikaLight-Plain";}
+.cta-car:hover{@include gradientTB(#59a400, #a2dd17); cursor: pointer;}
+
+.of-rel-cover{@include fullsize; background-color: #4da7ae; @include transition(4); border-radius: 8px}
+.of-rel-thunder-icon-large{@include posCenter(100,100);}
+
+// TILES ESPECIAIS
+
+// TILE CHAT ONLINE
+.tile-chat-online{@extend .tile; height: 240px;
+	@include isMobile{margin-top: 45px}; width: 200px; margin-left: 20px}
+.tile-chat-online-content{width: 100%; height: 95px; position: absolute; bottom: 0px;}
+#tile-chat-img-status{position: absolute; width: 95%; right: 0px; top: 13px}
+.chat-online-title{width: 100%; height: auto; position: absolute; top: 5px; font-family: "KlavikaLight-Plain"; font-size: 18px; text-align: center; color: #fff}
+.chat-online-status-bar{width: 100%; height: 10px; position: absolute; top: 40px; background-color: $amarelo_tile_title}
+
+// TILE INFO
+.tile-informacoes{@extend .tile; width: 100%}
+.tile-informacoes-img{@include section(240px); background-color: $amarelo_tile_title}
+.tile-informacoes-img-text{@include auto; @include posA(95,20); font-family: "BebasNeue"; font-size: 50px; color: #fff; letter-spacing: 2px; text-shadow: 0px 0px 7px rgba(0,0,0,0.8);}
+.tile-informacoes-text{@include section(auto); width: 93%; padding: 30px; font-family: "KlavikaLight-Plain"; font-size: 16px; color: #666;
+	@include isMobile{width: 73%};}
+
+// RODAPE 
+
+.rodape{@include section(auto); position: fixed; bottom: 0px; z-index: 9}
+.rodape-gradient{@include section(60px); @include gradientTBLong;}
+.rodape-content-container{width: 100%; height: 60px; position: absolute; bottom: 0px; background-color: $azul_header;
+	@include isMobile{height: 50px};}
+.rodape-content{@include rectXCenter(920, 60px); position: relative; float: left; 
+	@include isMobile{display: none};}
+#contador{@include posCenter(200, 50);; display: block; position: absolute; z-index: 99;}
+.contador-text{@include rect(320, 30); position: absolute; top: 9px; font-family: "BebasNeue"; font-size: 40px; color: $laranja_font_contador; letter-spacing: 5px; line-height: 49px;}
+.contador-text-l{@extend .contador-text; left: 50%; margin-left: -400px}
+.contador-text-r{@extend .contador-text; right: 50%; margin-right: -440px; width: 320px;}
+.info-icon{position: absolute; width: 20px; cursor: pointer;} .info-icon:hover{opacity: 0.9}
+
+// RODAPE MOBILE
+
+.cta-consultor{@include square(50); position: absolute; background-color: #a2dd17; margin-top: 10px;
+	@include notMobile{display: none};}
+
+// FONTFACES
+
+@include fontface("KlavikaLight-Plain");
+@include fontface("FuturaDZ-Heavy");
+@include fontface("BebasNeue");
+
+input:focus, textarea:focus, span:focus, {
+    outline: none;
+}
+
+// PLACEHOLDERS
+
+::-webkit-input-placeholder{text-align: center;}
+
+@import "_reset";

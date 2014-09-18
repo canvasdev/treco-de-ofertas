@@ -1,0 +1,101 @@
+// FORMS
+
+@mixin rect($width, $height){width: $width+px; height: $height+px;} // RECT
+@mixin rectHeightAuto($width){width: $width+px; height: auto;} // RECT
+@mixin rectNU($width, $height){width: $width; height: $height;} // RECT
+@mixin square($side){width: $side+px; height: $side+px;} // SQUARE
+@mixin circle($diameter){width: $diameter+px; height: $diameter+px; border-radius: 50%} // CIRCLE
+@mixin auto{width: auto; height: auto;} // CIRCLE
+
+// COMMOM STRUCTURES
+
+@mixin fullsize{width: 100%; height: 100%; position: absolute;} // FULLSCREEN
+@mixin section($height){width: 100%; height: $height; position: relative; float: left; margin-top: 0px; overflow: hidden;} // FULLSCREEN
+@mixin posCenter($width, $height){width: $width+px; height: $height+px; position: absolute; top: 50%; left: 50%; margin-left: $width / 2 * -1px; margin-top: $height / 2 * -1px} // ABSOLUTE
+@mixin circlePosCenter($side){width: $side+px; height: $side+px; position: absolute; top: 50%; left: 50%; margin-left: $side / 2 * -1px; margin-top: $side / 2 * -1px; border-radius: 50%} // ABSOLUTE
+@mixin rectXCenter($width, $height){width: $width+px; height: $height; position: absolute; left: 50%; margin-left: $width / 2 * -1px;} // ABSOLUTE
+
+// POSITIONING
+
+@mixin posA($top, $left){position: absolute; top: $top+px; left: $left+px;} // ABSOLUTE
+@mixin posAright($top, $right){position: absolute; top: $top+px; right: $right+px;} // ABSOLUTE
+@mixin posR($margin-top-bottom, $margin-left-right){position: relative; float: left; margin: $margin-top-bottom+px $margin-left-right+px} // RELATIVE
+
+// FONT
+
+@mixin font($family, $size, $color){font: {family: $family; size: $size+px;}; color: $color} // SIMPLE FONT CONFIG
+@mixin fontArial($size, $color){font: {size: $size; family: arial, helvetica, sans-serif}; color: $color}; // ARIAL, HELVETICA, SANS SERIF
+
+// FONT FACE
+
+@mixin fontface($family){@font-face {
+  font-family: $family;
+  src: url('../fonts/'+$family+'.eot?#iefix') format('embedded-opentype'),  url('../fonts/'+$family+'.woff') format('woff'), url('../fonts/'+$family+'.ttf')  format('truetype'), url('../fonts/'+$family+'.svg#Oswald-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;}}
+
+// BORDER-RADIUS
+
+@mixin borderRadius($radius){border-radius: $radius+px;}
+
+// BUTTON
+
+@mixin cta($width, $height){width: $width; height: $height; position: absolute; }
+
+// BACKGROUND
+
+@mixin bgimg($source, $extension){background-image: url('../img/'+$source+'.'+$extension+'');}
+@mixin bgimgCenter($source, $extension){
+  background: url('../img/'+$source+'.'+$extension+'') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin gradientTB($firstColor, $secondColor){
+background: $firstColor;
+background: -moz-linear-gradient(top, $firstColor 0%, $secondColor 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, $firstColor), color-stop(100%, $secondColor));
+background: -webkit-linear-gradient(top, $firstColor 0%, $secondColor 100%);
+background: -o-linear-gradient(top, $firstColor 0%, $secondColor 100%);
+background: -ms-linear-gradient(top, $firstColor 0%, $secondColor 100%);
+background: linear-gradient(to bottom, $firstColor 0%, $secondColor 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$firstColor', endColorstr='$secondColor', GradientType=0 );
+}
+
+@mixin gradientTBLong{
+background: rgba(255,255,255,0);
+background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(250,250,250,0.25) 15%, rgba(250,250,250,0.69) 41%, rgba(250,250,250,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(15%, rgba(250,250,250,0.25)), color-stop(41%, rgba(250,250,250,0.69)), color-stop(100%, rgba(250,250,250,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(250,250,250,0.25) 15%, rgba(250,250,250,0.69) 41%, rgba(250,250,250,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(250,250,250,0.25) 15%, rgba(250,250,250,0.69) 41%, rgba(250,250,250,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(250,250,250,0.25) 15%, rgba(250,250,250,0.69) 41%, rgba(250,250,250,1) 100%);
+}
+
+@mixin flatButton($firstColor, $secondColor){
+background: $firstColor;
+background: -moz-linear-gradient(top, $firstColor 0%, $firstColor 50%, $secondColor 50%, $secondColor 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, $firstColor), color-stop(50%, $firstColor), color-stop(50%, $secondColor), color-stop(100%, $secondColor));
+background: -webkit-linear-gradient(top, $firstColor 0%, $firstColor 50%, $secondColor 50%, $secondColor 100%);
+background: -o-linear-gradient(top, $firstColor 0%, $firstColor 50%, $secondColor 50%, $secondColor 100%);
+background: -ms-linear-gradient(top, $firstColor 0%, $firstColor 50%, $secondColor 50%, $secondColor 100%);
+background: linear-gradient(to bottom, $firstColor 0%, $firstColor 50%, $secondColor 50%, $secondColor 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#79c1c0', endColorstr='#6badac', GradientType=0 );
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+//
+//  Author: Kande Bonfim & Müller Almeida
+// 
+//  Created on 14/11/2013
+//
+// ---------------------------------------------------------------------------------------------------------------------
+//
+// Requirements:
+//   Sass 3.2.0+
+//
+// ---------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
