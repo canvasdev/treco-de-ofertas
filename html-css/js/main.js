@@ -73,3 +73,45 @@ $("#contador").ResponsiveCountdown({
 	spacer:"none",groups_spacing:0,text_blur:2,
 	font_to_digit_ratio:0.1,labels_space:1.3
 });
+
+// MASONRY
+
+var container = document.querySelector('#container');
+var msnry = new Masonry( container, {
+  // options
+  columnWidth: 200,
+  itemSelector: '.item',
+  "gutter": 40
+});
+
+// COOKIE
+
+function setCookie(cname,cvalue) {
+    document.cookie = cname+"="+cvalue+"; ";
+};
+
+// FOMULARIO MOBILE 
+
+function showHideFormMobile() {
+	if ($(".busca-mobile-close").css("display") == "none") {
+		$(".busca-mobile-close, .search-field").fadeIn();
+	} else {
+		$(".busca-mobile-close, .search-field").fadeOut();
+	}
+}
+
+function showHideInfoModal() {
+	if ($(".info-modal-container").css("display") == "none") {
+		$(".info-modal-container").fadeIn();
+	} else {
+		$(".info-modal-container").fadeOut();
+	}
+}
+
+$(document).scroll(function(){
+	$(".busca-mobile-close, .search-field").fadeOut();
+});
+
+
+
+

@@ -2,20 +2,39 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Treco de ofertas</title>
+        <title>Plataforma de feirões</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name = "format-detection" content = "telephone=yes">
         <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
         <link rel="stylesheet" href="jquery-ui/jquery-ui.structure.css">
         <link rel="stylesheet" href="jquery-ui/jquery-ui.theme.css">
-
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+<!-- CÓDIGO ANALYTICS INICIO -->
+<!-- ... -->
+<!-- CÓDIGO ANALYTICS FIM -->
+
     </head>
     <body>
+
+<div class="info-modal-container">
+    <div class="info-modal-container-back" onClick="showHideInfoModal()"></div>
+    <div class="info-modal-content-container">
+        <div class="tile-title-esp">
+            <img class="list-icon" src="img/icons/list.svg" alt="">
+            <div class="tile-title-text">REGULAMENTO</div>
+        </div>
+        <div class="tile-informacoes-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At incidunt cumque autem recusandae, quam iusto quos architecto illo eos tenetur molestiae natus temporibus culpa eligendi ipsum molestias pariatur consectetur delectus deleniti officia sequi error qui dolorum. Cupiditate dolorem error recusandae quos consequuntur saepe. Non quisquam ut, expedita dolor distinctio possimus.</div>
+        <div class="info-modal-close">
+            <img src="img/icons/close-orange.svg" width="100%" onClick="showHideInfoModal()">
+        </div>
+    </div>
+</div>
 
 <div class="header">
     <div class="header-content">
@@ -23,7 +42,7 @@
           <source src="sounds/notification.mp3" type="audio/mpeg">
         </audio>
         <div class="logo-concessionaria">
-            <img src="img/logo-jorlan.png" alt="">
+            <img src="img/logo/logo-jorlan.png" alt="">
         </div>
         <input class="search" title="BUSCA" type="text" placeholder="PROCURAR POR UM VEÍCULO">
         <div class="phone-numbers-container">
@@ -35,6 +54,18 @@
             </div>
         </div>
     </div>
+    <div class="header-mobile">
+        <div class="logo-concessionaria">
+            <img src="img/logo/logo-jorlan.png" alt="">
+        </div>
+        <div class="busca-mobile" onClick="showHideFormMobile()">
+            <img src="img/icons/busca.svg" width="100%" alt="">
+        </div>
+        <input class="search-field" placeholder="PROCURAR POR UM VEÍCULO"></input>
+        <div class="busca-mobile-close" onClick="showHideFormMobile()">
+            <img src="img/icons/close.svg" width="100%" alt="">
+        </div>
+    </div>
     <div class="notification-bar" onClick="showNewOffers()">
         <div class="notification-content-container">
             <div class="notification-number"></div>
@@ -42,13 +73,18 @@
         </div>
     </div>
 </div>
+
+<!-- HEADER FIM -->
+<!-- INDEX INICIO -->
+
+<div class="notification-bar"></div>
 <div class="main-tile">
-    <img src="img/main-tile.jpg" width="100%" alt="">
+    <img src="img/tiles-fixos/main-tile.jpg" width="100%" alt="">
 </div>
 <div class="tiles-container">
     <div id="container" class="tiles-columns-container">
         <div class="tile-chat-online item">
-            <img src="img/tile-chat-online-2.jpg" width="100%" height="100%" alt="">
+            <img src="img/tiles-fixos/tile-chat-online.jpg" width="100%" height="100%" alt="">
             <div class="tile-chat-online-content">
                 <!-- webim button --><a href="http://www.grupoocp.com.br/chat/jorlan/client.php?locale=pt-br&amp;style=original&amp;group=24" target="_blank" onclick="if(navigator.userAgent.toLowerCase().indexOf('opera') != -1 &amp;&amp; window.event.preventDefault) window.event.preventDefault();this.newWindow = window.open('http://www.grupoocp.com.br/chat/jorlan/client.php?locale=pt-br&amp;style=original&amp;group=24&amp;url='+escape(document.location.href)+'&amp;referrer='+escape(document.referrer), 'webim', 'toolbar=0,scrollbars=0,location=0,status=1,menubar=0,width=640,height=480,resizable=1');this.newWindow.focus();this.newWindow.opener=window;return false;"><img id="tile-chat-img-status" src="http://www.grupoocp.com.br/chat/jorlan/b.php?i=webim&amp;lang=pt-br&amp;group=24" border="0" alt=""/></a><!-- / webim button -->
                 <!-- <div class="chat-online-title">FALE COM UM <br> CONSULTOR ONLINE</div>
@@ -74,8 +110,11 @@
                 </div>
             </div>
         </div>
-        <div preco="52" class="tile item oferta of-esp">
-            <div class="tile-title-1">
+
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-esp" preco="52">
+            <div class="tile-title-esp">
                 <img class="key-icon" src="img/icons/key.svg">
                 <div class="tile-title-text">OFERTA ESPECIAL</div>
             </div>
@@ -83,20 +122,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="52" class="tile item oferta of-rel">
-            <div class="tile-title-2">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="52">
+            <div class="tile-title-rel">
                 <img class="thunder-icon" src="img/icons/thunder.svg">
                 <div class="tile-title-text">OFERTA RELÂMPAGO</div>
             </div>
@@ -104,19 +151,27 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="52" class="tile item oferta of-esp">
-            <div class="tile-title-1">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-esp" preco="52">
+            <div class="tile-title-esp">
                 <img class="key-icon" src="img/icons/key.svg">
                 <div class="tile-title-text">OFERTA ESPECIAL</div>
             </div>
@@ -124,19 +179,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="52" class="tile item oferta of-con">
-            <div class="tile-title-3">
+        
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-con" preco="52">
+            <div class="tile-title-con">
                 <img class="warning-icon" src="img/icons/warning.svg">
                 <div class="tile-title-text">CONDIÇÃO IMPERDÍVEL</div>
             </div>
@@ -144,20 +208,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="52" class="tile item oferta of-rel">
-            <div class="tile-title-2">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="52">
+            <div class="tile-title-rel">
                 <img class="thunder-icon" src="img/icons/thunder.svg">
                 <div class="tile-title-text">OFERTA RELÂMPAGO</div>
             </div>
@@ -165,20 +237,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="52" class="tile item oferta of-esp">
-            <div class="tile-title-1">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-esp" preco="52">
+            <div class="tile-title-esp">
                 <img class="key-icon" src="img/icons/key.svg">
                 <div class="tile-title-text">OFERTA ESPECIAL</div>
             </div>
@@ -186,20 +266,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="52" class="tile item oferta of-rel">
-            <div class="tile-title-2">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="52">
+            <div class="tile-title-rel">
                 <img class="thunder-icon" src="img/icons/thunder.svg">
                 <div class="tile-title-text">OFERTA RELÂMPAGO</div>
             </div>
@@ -207,20 +295,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="40" class="tile item oferta of-esp">
-            <div class="tile-title-1">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-esp" preco="40">
+            <div class="tile-title-esp">
                 <img class="key-icon" src="img/icons/key.svg">
                 <div class="tile-title-text">OFERTA ESPECIAL</div>
             </div>
@@ -228,20 +324,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="40" class="tile item oferta of-rel">
-            <div class="tile-title-2">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="40">
+            <div class="tile-title-rel">
                 <img class="thunder-icon" src="img/icons/thunder.svg">
                 <div class="tile-title-text">OFERTA RELÂMPAGO</div>
             </div>
@@ -249,20 +353,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="40" class="tile item oferta of-rel">
-            <div class="tile-title-2">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="40">
+            <div class="tile-title-rel">
                 <img class="thunder-icon" src="img/icons/thunder.svg">
                 <div class="tile-title-text">OFERTA RELÂMPAGO</div>
             </div>
@@ -270,20 +382,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="40" class="tile item oferta of-con">
-            <div class="tile-title-3">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-con" preco="40">
+            <div class="tile-title-con">
                 <img class="warning-icon" src="img/icons/warning.svg">
                 <div class="tile-title-text">CONDIÇÃO IMPERDÍVEL</div>
             </div>
@@ -291,19 +411,27 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="40" class="tile item oferta of-esp">
-            <div class="tile-title-1">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-esp" preco="40">
+            <div class="tile-title-esp">
                 <img class="key-icon" src="img/icons/key.svg">
                 <div class="tile-title-text">OFERTA ESPECIAL</div>
             </div>
@@ -311,20 +439,28 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
-        <div preco="40" class="tile item oferta of-con">
-            <div class="tile-title-3">
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-con" preco="40">
+            <div class="tile-title-con">
                 <img class="warning-icon" src="img/icons/warning.svg">
                 <div class="tile-title-text">CONDIÇÃO IMPERDÍVEL</div>
             </div>
@@ -332,43 +468,352 @@
             <div class="image-car-container">
                 <img class="image-car" src="img/carros/onix.png" alt="">
             </div>
-            <div class="price-de">
-                <div class="price-type-de">DE</div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
             </div>
-            <div class="price-por">
-                <div class="price-type-por">POR</div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
             </div>
             <div class="dotz-car">+ <span>5.000</span> DOT\</div>
             <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
             <div class="cta-car-container">
-                <div class="cta-car">QUERO SABER MAIS</div>
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
             </div>
         </div>
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-esp" preco="52">
+            <div class="tile-title-esp">
+                <img class="key-icon" src="img/icons/key.svg">
+                <div class="tile-title-text">OFERTA ESPECIAL</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="dotz-car">+ <span>5.000</span> DOT\</div>
+            <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="52">
+            <div class="tile-title-rel">
+                <img class="thunder-icon" src="img/icons/thunder.svg">
+                <div class="tile-title-text">OFERTA RELÂMPAGO</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="dotz-car">+ <span>5.000</span> DOT\</div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+        
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-esp" preco="52">
+            <div class="tile-title-esp">
+                <img class="key-icon" src="img/icons/key.svg">
+                <div class="tile-title-text">OFERTA ESPECIAL</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+        
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-con" preco="52">
+            <div class="tile-title-con">
+                <img class="warning-icon" src="img/icons/warning.svg">
+                <div class="tile-title-text">CONDIÇÃO IMPERDÍVEL</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="dotz-car">+ <span>5.000</span> DOT\</div>
+            <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="52">
+            <div class="tile-title-rel">
+                <img class="thunder-icon" src="img/icons/thunder.svg">
+                <div class="tile-title-text">OFERTA RELÂMPAGO</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="dotz-car">+ <span>5.000</span> DOT\</div>
+            <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-esp" preco="52">
+            <div class="tile-title-esp">
+                <img class="key-icon" src="img/icons/key.svg">
+                <div class="tile-title-text">OFERTA ESPECIAL</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="dotz-car">+ <span>5.000</span> DOT\</div>
+            <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="52">
+            <div class="tile-title-rel">
+                <img class="thunder-icon" src="img/icons/thunder.svg">
+                <div class="tile-title-text">OFERTA RELÂMPAGO</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="dotz-car">+ <span>5.000</span> DOT\</div>
+            <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-esp" preco="40">
+            <div class="tile-title-esp">
+                <img class="key-icon" src="img/icons/key.svg">
+                <div class="tile-title-text">OFERTA ESPECIAL</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="dotz-car">+ <span>5.000</span> DOT\</div>
+            <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="40">
+            <div class="tile-title-rel">
+                <img class="thunder-icon" src="img/icons/thunder.svg">
+                <div class="tile-title-text">OFERTA RELÂMPAGO</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="dotz-car">+ <span>5.000</span> DOT\</div>
+            <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+
+<!-- OFERTA FIM -->
+<!-- OFERTA INICIO -->
+
+        <div class="tile item oferta of-rel" preco="40">
+            <div class="tile-title-rel">
+                <img class="thunder-icon" src="img/icons/thunder.svg">
+                <div class="tile-title-text">OFERTA RELÂMPAGO</div>
+            </div>
+            <div class="title-car">ONIX LS</div>
+            <div class="image-car-container">
+                <img class="image-car" src="img/carros/onix.png" alt="">
+            </div>
+            <div class="price-de-type">
+                <div class="price-de">de</div>
+                <div class="price-de preco-valor">R$ 38.999,00</div>
+            </div>
+            <div class="price-por-type">
+                <div class="price-por">por</div>
+                <div class="price-por preco-valor">R$ <span>34.599</span>,00</div>
+            </div>
+            <div class="dotz-car">+ <span>5.000</span> DOT\</div>
+            <div class="bonus-car">+ BÔNUS DE <span>R$ 5.000</span></div>
+            <div class="cta-car-container">
+                <a href="URL DE DESTINO">
+                    <div class="cta-car">QUERO SABER MAIS</div>
+                </a>
+            </div>
+        </div>
+
+<!-- OFERTA FIM -->
+
         <div class="tile-informacoes item">
             <div class="tile-informacoes-img">
-                <img src="img/tiles-fixos/tile-info.jpg" width="100%" alt="">
+                <img src="img/tiles-fixos/tile-info.jpg" alt="">
                 <div class="tile-informacoes-img-text">SÃO VANTAGENS QUE NÃO ACABAM</div>
             </div>
             <div class="tile-informacoes-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At incidunt cumque autem recusandae, quam iusto quos architecto illo eos tenetur molestiae natus temporibus culpa eligendi ipsum molestias pariatur consectetur delectus deleniti officia sequi error qui dolorum. Cupiditate dolorem error recusandae quos consequuntur saepe. Non quisquam ut, expedita dolor distinctio possimus.</div>
         </div>
     </div>
 </div>
+
+<!-- INDEX FIM -->
+<!-- FOOTER INICIO -->
+
 <div class="rodape">
     <div class="rodape-gradient"></div>
     <div class="rodape-content-container"></div>
-    <div class="cta-consultor"></div>
     <div class="rodape-content">
         <div class="contador-text-l">CORRA! VOCÊ TEM</div>
         <div id="contador"></div>
         <div class="contador-text-r">PARA APROVEITAR
-            <img id="info-feirao" class="info-icon" src="img/icons/info.svg" title="Mais informações">
+            <img id="info-feirao" class="info-icon" src="img/icons/info.svg" title="Mais informações" onClick="showHideInfoModal()">
         </div>
     </div>
+    <a class="rodape-mobile" href="tel:0000-0000">
+        <div class="rodape-content-mobile">
+            <div class="cta-consultor">
+                <img class="phone-icon-2" src="img/icons/phone-orange.svg" alt="">
+                <div class="cta-text">LIGUE PARA UM CONSULTOR</div>
+            </div>
+        </div>
+    </a>
+    
 </div>
 
 <script>
     tempoParaNotificacaoOfertas = 10000;
-    dataDeVencimentoOfertas = "19/9/2014";
+    dataDeVencimentoOfertas = "23/9/2014";
     horarioDeVencimentoOfertas = "00:00:00";
 </script>
 
@@ -382,15 +827,9 @@
 <script type="text/javascript" src="js/plugins/jquery.responsive_countdown.min.js"></script>
 <script src="js/main.js"></script>
 
-<script>
-    var container = document.querySelector('#container');
-    var msnry = new Masonry( container, {
-      // options
-      columnWidth: 200,
-      itemSelector: '.item',
-      "gutter": 40
-    });
-</script>
+<!-- CÓDIGO DE REMARKING INICIO -->
+<!-- ... -->
+<!-- CÓDIGO DE REMARKING FIM -->
 
     </body>
 </html>

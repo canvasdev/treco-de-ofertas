@@ -1,5 +1,13 @@
-@mixin transition($time){-webkit-transition: $time+s;
+@mixin transition($time){
+-webkit-transition: $time+s;
 -moz-transition: $time+s;
 -ms-transition: $time+s;
 -o-transition: $time+s;
 transition: $time+s;}
+
+@mixin transformScale($ratio){
+-webkit-transform: scale($ratio);
+-ms-transform: scale($ratio);
+-o-transform: scale($ratio);
+transform: scale($ratio);
+}
