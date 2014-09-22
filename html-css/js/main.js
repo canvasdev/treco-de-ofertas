@@ -6,7 +6,9 @@ firstOfferHide();
 
 setTimeout(function() {
 	var numeroDeOfertas = $(".of-rel").length;
-	newOfferNotification(numeroDeOfertas);
+	if (numeroDeOfertas !== 0) {
+		newOfferNotification(numeroDeOfertas);
+	};
 }, tempoParaNotificacaoOfertas);
 
 function firstOfferHide() {
@@ -25,7 +27,7 @@ function newOfferNotification(qtdOfertas) {
 		$(".notification-bar").toggleClass("notification-bar-blink");
 	}, 500);
 	document.title = "("+qtdOfertas+") "+documentTitle;
-	document.getElementById("audio").play();
+	document.getElementById("notification").play();
 }
 
 function showNewOffers() {
@@ -76,13 +78,16 @@ $("#contador").ResponsiveCountdown({
 
 // MASONRY
 
-var container = document.querySelector('#container');
-var msnry = new Masonry( container, {
-  // options
-  columnWidth: 200,
-  itemSelector: '.item',
-  "gutter": 40
-});
+if (location.pathname.split("/")[3] == "") {
+	var container = document.querySelector('#container');
+	var msnry = new Masonry( container, {
+	  // options
+	  columnWidth: 200,
+	  itemSelector: '.item',
+	  "gutter": 40
+	});
+};
+
 
 // COOKIE
 
@@ -112,6 +117,11 @@ $(document).scroll(function(){
 	$(".busca-mobile-close, .search-field").fadeOut();
 });
 
-
-
+var offerInfoItemsQtd = $(".offer-info-list-item-container").length;
+for (var i = 0; i <= offerInfoItemsQtd -1; i++) {
+	if (i % 2 == 0) {
+    	$(".offer-info-list-item-container:eq("+i+")").addClass("oil-item-data-a");
+    	$(".offer-info-list-item-container:eq("+i+") .oil-item-title").addClass("oil-item-title-a");
+	};
+};
 

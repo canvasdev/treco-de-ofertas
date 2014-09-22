@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Pagina Interna</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name = "format-detection" content = "telephone=yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+        <link rel="stylesheet" href="jquery-ui/jquery-ui.structure.css">
+        <link rel="stylesheet" href="jquery-ui/jquery-ui.theme.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+<!-- CÓDIGO ANALYTICS INICIO -->
+<!-- ... -->
+<!-- CÓDIGO ANALYTICS FIM -->
+
+    </head>
+    <body>
+
+<div class="info-modal-container">
+    <div class="info-modal-container-back" onClick="showHideInfoModal()"></div>
+    <div class="info-modal-content-container">
+        <div class="tile-title-esp">
+            <img class="list-icon" src="img/icons/list.svg" alt="">
+            <div class="tile-title-text">REGULAMENTO</div>
+        </div>
+        <div class="tile-informacoes-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At incidunt cumque autem recusandae, quam iusto quos architecto illo eos tenetur molestiae natus temporibus culpa eligendi ipsum molestias pariatur consectetur delectus deleniti officia sequi error qui dolorum. Cupiditate dolorem error recusandae quos consequuntur saepe. Non quisquam ut, expedita dolor distinctio possimus.</div>
+        <div class="info-modal-close">
+            <img src="img/icons/close-orange.svg" width="100%" onClick="showHideInfoModal()">
+        </div>
+    </div>
+</div>
+
+<div class="header">
+    <div class="header-content">
+        <audio id="notification">
+          <source src="sounds/notification.mp3" type="audio/mpeg">
+        </audio>
+        <div class="logo-concessionaria">
+            <img src="img/logo/logo-jorlan.png" alt="">
+        </div>
+        <input class="search" title="BUSCA" type="text" placeholder="PROCURAR POR UM VEÍCULO">
+        <div class="phone-numbers-container">
+            <div class="phone-numbers">
+                <img class="phone-icon" src="img/icons/phone.svg" alt="">
+                <div class="phone-number-text">TELEFONES</div>
+                <div class="phone-number-text">(00) 0000-0001</div>
+                <div class="phone-number-text">(00) 0000-0002</div>
+            </div>
+        </div>
+    </div>
+    <div class="header-mobile">
+        <div class="logo-concessionaria">
+            <img src="img/logo/logo-jorlan.png" alt="">
+        </div>
+        <div class="busca-mobile" onClick="showHideFormMobile()">
+            <img src="img/icons/busca.svg" width="100%" alt="">
+        </div>
+        <input class="search-field" placeholder="PROCURAR POR UM VEÍCULO"></input>
+        <div class="busca-mobile-close" onClick="showHideFormMobile()">
+            <img src="img/icons/close.svg" width="100%" alt="">
+        </div>
+    </div>
+    <div class="notification-bar" onClick="showNewOffers()">
+        <div class="notification-content-container">
+            <div class="notification-number"></div>
+            <div class="notification-text"></div>
+        </div>
+    </div>
+</div>
+
+<!-- HEADER FIM -->
+<!-- INDEX INICIO -->
+
+<div class="notification-bar"></div>
+<div class="header-car">
+    <div class="white-bar-above-header-carro"></div>
+    <div class="header-car-content">
+        <div class="header-car-image-container">
+            <div class="arrow-down-above-car"></div>
+            <div class="header-car-image">
+                <img src="img/carros/cruze-big.png" alt="">
+            </div>
+            <div class="header-car-title-container">
+                <div class="header-car-title-box">
+                    <div class="header-car-title-a">ESSA É A SUA OPORTUNIDADE DE TER UM</div>
+                    <div class="header-car-title-b">CRUZE LT 2.8L <span>14/14</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="formulario-container">
+    <div class="form-title">QUER SABER MAIS?</div>
+    <div class="form-text-container">
+        <div class="form-text">Para saber mais sobre o Cruze,<br> preencha o formulário abaixo.</div>
+    </div>
+    <input class="campos" type="text" name="nome" id="nome" placeholder="Qual é o seu nome?"/>
+    <input class="campos" type="text" name="email" id="email" placeholder="Qual é o seu email?"/>
+    <input class="campos" type="text" name="telefone" class="mask-fone" placeholder="Qual é o seu telefone?"  id="telefone"/>
+    <textarea class="campos" rows="6" placeholder="Deseja deixar uma mensagem?"  name="mensagem" id="mensagem"></textarea>
+    <input name="charset" type="hidden" value="iso-8859-1" />
+    <select class="campos" name="codempresa" id="codempresa" name="codempresa">
+        <option value="1">Escolha uma concessionária</option>
+        <option value="1">Concessionária 1</option>
+        <option value="2">Concessionária 2</option>
+    </select>
+    <input class="campos cta-car" type="submit" name="enviar" value="Quero mais informações!" />
+    <div class="form-text-container" style="margin-top: 20px; font-size: 14px">
+        <div class="form-text">O seus dados estão seguros conosco,<br> não praticamos e não apoiamos o spam.</div>
+    </div>
+</div>
+
+
+
+<div class="car-info-container">
+    <div class="car-info-content-container">
+        <div class="car-info-content-container-right">
+            <div class="tile-interna-offer-info">
+                <div class="tile-interna-offer-img-container">
+                    <img src="img/tiles-fixos/mega-oferta.jpg">
+                </div>
+                <div class="tile-interna-offer-info-list-container">
+                    <div class="offer-info-list-item-container">
+                        <div class="oil-item-title">Entrada de</div>
+                        <div class="oil-item-data">R$ <span>5.000</span>,00</div>
+                    </div>
+                    <div class="offer-info-list-item-container">
+                        <div class="oil-item-title">+ 40 Parcelas de</div>
+                        <div class="oil-item-data">R$ <span>700</span>,00</div>
+                    </div>
+                    <div class="offer-info-list-item-container">
+                        <div class="oil-item-title">Ou a vista por</div>
+                        <div class="oil-item-data">R$ <span>32.000</span>,00</div>
+                    </div>
+                    <div class="offer-info-list-item-container">
+                        <div class="oil-item-title">de</div>
+                        <div class="oil-item-data">R$ <span>35.000</span>,00</div>
+                    </div>
+                    <div class="offer-info-list-item-container">
+                        <div class="oil-item-title">por</div>
+                        <div class="oil-item-data">R$ <span>32.000</span>,00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile-interna-selo-img-container">
+                <img src="img/tiles-fixos/dotz.jpg">
+            </div>
+            <div class="tile-interna-selos-container">
+                <div class="offer-info-list-item-container">
+                    <div class="oil-item-title">
+                        <img src="img/logo/logo-jorlan-min.png" alt="">
+                    </div>
+                    <div class="oil-item-data">MELHOR COMPRA 2014</div>
+                </div>
+                <div class="offer-info-list-item-container">
+                    <div class="oil-item-title">
+                        <img src="img/logo/logo-jorlan-min.png" alt="">
+                    </div>
+                    <div class="oil-item-data">Carro + economico</div>
+                </div>
+                <div class="offer-info-list-item-container">
+                    <div class="oil-item-title">
+                        <img src="img/logo/logo-jorlan-min.png" alt="">
+                    </div>
+                    <div class="oil-item-data">ESPORTIVO DO ANO</div>
+                </div>
+                <div class="offer-info-list-item-container">
+                    <div class="oil-item-title">
+                        <img src="img/logo/logo-jorlan-min.png" alt="">
+                    </div>
+                    <div class="oil-item-data">SATISFAÇÃO GARANTIDA</div>
+                </div>
+            </div>
+            <div class="tile-interna-opcionais-container">
+                <div class="tile-interna-opcionais-title">
+                    <img class="warning-icon" src="img/icons/search.svg">
+                    <div class="tile-title-text">Opcionais do Cruze LT 2.8 14/14</div>
+                </div>
+                <div class="opcionais-item-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+
+<!-- INDEX FIM -->
+<!-- FOOTER INICIO -->
+
+<div class="rodape">
+    <div class="rodape-gradient"></div>
+    <div class="rodape-content-container"></div>
+    <div class="rodape-content">
+        <div class="contador-text-l">CORRA! VOCÊ TEM</div>
+        <div id="contador"></div>
+        <div class="contador-text-r">PARA APROVEITAR
+            <img id="info-feirao" class="info-icon" src="img/icons/info.svg" title="Mais informações" onClick="showHideInfoModal()">
+        </div>
+    </div>
+    <a class="rodape-mobile" href="tel:0000-0000">
+        <div class="rodape-content-mobile">
+            <div class="cta-consultor">
+                <img class="phone-icon-2" src="img/icons/phone-orange.svg" alt="">
+                <div class="cta-text">LIGUE PARA UM CONSULTOR</div>
+            </div>
+        </div>
+    </a>
+    
+</div>
+
+<script>
+    tempoParaNotificacaoOfertas = 10000;
+    dataDeVencimentoOfertas = "23/9/2014";
+    horarioDeVencimentoOfertas = "00:00:00";
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+<script src="jquery-ui/jquery-ui.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/faixa-preco-slider.js"></script>
+<script src="js/plugins/masonry.pkgd.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.responsive_countdown.min.js"></script>
+<script src="js/main.js"></script>
+
+<!-- CÓDIGO DE REMARKING INICIO -->
+<!-- ... -->
+<!-- CÓDIGO DE REMARKING FIM -->
+
+    </body>
+</html>
