@@ -1,0 +1,176 @@
+/* INTERNA */
+
+// ESQUEMA DE CORES
+
+// 1
+$th1_header_carro: #344b5f;
+$th1_header_carro_title: #fff; 
+$th1_table_title: #e89702;
+$th1_table_data: #344b5f; 
+$th1_cinza_formulario: #f1f1f1;
+
+// 2
+$th2_header_carro: #cecf77; 
+$th2_header_carro_title: #5c5c35; 
+$th2_table_title: #3B8686;
+$th2_table_data: #0B486B;
+$th2_cinza_formulario: #f1f1f1;
+
+// 3
+$th3_header_carro: #3B8686;
+$th3_header_carro_title: #fff; 
+$th3_table_title: #3B8686;
+$th3_table_data: #0B486B;
+$th3_cinza_formulario: #f1f1f1;
+
+// 4 
+$th4_header_carro: #666;
+$th4_header_carro_title: #fff; 
+$th4_table_title: #3B8686;
+$th4_table_data: #0B486B;
+$th4_cinza_formulario: #f1f1f1;
+
+//
+$th_header_carro:
+	1 $th1_header_carro,
+	2 $th2_header_carro,
+	3 $th3_header_carro,
+	4 $th4_header_carro;
+
+$th_header_carro_title:
+	1 $th1_header_carro_title,
+	2 $th2_header_carro_title,
+	3 $th3_header_carro_title,
+	4 $th4_header_carro_title;
+
+$th_table_title:
+	1 $th1_table_title,
+	2 $th2_table_title,
+	3 $th3_table_title,
+	4 $th4_table_title;
+
+$th_table_data:
+	1 $th1_table_data,
+	2 $th2_table_data,
+	3 $th3_table_data,
+	4 $th4_table_data;
+
+$th_cinza_formulario:
+	1 $th1_cinza_formulario,
+	2 $th2_cinza_formulario,
+	3 $th3_cinza_formulario,
+	4 $th4_cinza_formulario;
+
+@each $tema in $th_header_carro {
+    .theme-car-#{nth($tema, 1)} {
+		.header-car{background-color: nth($tema, 2);}
+		.header-car-title-b span{color: nth($tema, 2);}
+		.arrow-down-above-car{border-top: 50px solid nth($tema, 2);}
+	}
+}
+
+@each $tema in $th_header_carro_title {
+    .theme-car-#{nth($tema, 1)} {
+		.header-car-title{color: nth($tema, 2);}
+		.header-car-title-b span{background-color: nth($tema, 2);}
+	}
+}
+
+@each $tema in $th_table_title {
+    .theme-car-#{nth($tema, 1)} {
+		.oil-item-title{background-color: nth($tema, 2);}
+		.oil-item-title-a{background-color: mix(nth($tema, 2), #000, 90%);}
+		.opcionais-item-container{background-color: $th1_table_title}
+	}
+}
+
+@each $tema in $th_table_data {
+    .theme-car-#{nth($tema, 1)} {
+		.tile-interna-offer-info-list-container{background-color: nth($tema, 2);}
+		.offer-info-list-item-container{background-color: nth($tema, 2);}
+		.oil-item-data-a{background-color: mix(nth($tema, 2), #000, 90%);}
+		.tile-interna-opcionais-container{background-color: nth($tema, 2);}
+	}
+}
+
+@each $tema in $th_table_data {
+    .theme-car-#{nth($tema, 1)} {
+		.formulario-container{background-color: nth($tema, 2);}
+	}
+}
+
+// CONTENT
+.header-car{@include section(550px); margin-top: 100px; background-color: $th1_header_carro}
+.header-car-content{@include rectXCenter(920, 100%);}
+.header-car-image-container{width: 60%; height: 500px; position: absolute; right: 0px;}
+	.header-car-image{width: 100%; height: 300px; position: absolute; bottom: 0px;}
+	.header-car-image img{width: 90%; position: absolute; bottom: 10px; left: 5%;}
+.header-car-title-container{width: 100%; height: 200px; position: absolute;}
+.header-car-title-box{@include posCenter(500, 80);}
+	.header-car-title{@include section(auto); color: $th1_header_carro_title;}
+	.header-car-title-a{@extend .header-car-title; font-family: "KlavikaLight-Plain"; font-size: 24px;}
+	.header-car-title-b{@extend .header-car-title; font-family: "BebasNeue"; font-size: 40px; letter-spacing: 2px; line-height: 36px;}
+	.header-car-title-b span{width: auto; height: 15px; position: absolute; margin-left: 10px; background-color: $th1_header_carro_title; color: $th1_header_carro; font-size: 15px; line-height: 17px; padding: 2px; border-radius: 4px;}
+.white-bar-above-header-carro{width: 100%; height: 50px; position: absolute; bottom: 0px; background-color: $bp_background}
+.arrow-down-above-car{width: 0; height: 0; position: absolute; bottom: -50px; right: 50%; margin-right: -50px; border-left: 50px solid transparent; border-right: 50px solid transparent; border-top: 50px solid $th1_header_carro;}
+
+.car-info-container{@include section(500px); margin-top: 40px; overflow: visible;}
+.car-info-content-container{@include rectXCenter(920, auto);}
+.car-info-content-container-right{width: 60%; height: auto; position: absolute; right: 0px; margin-bottom: 100px;}
+
+.tile-interna-offer-info{@extend .tile; width: 100%; height: auto}
+.tile-interna-offer-info-list-container{width: 70%; height: auto; position: relative; float: right; background-color: $th1_table_data}
+.offer-info-list-item-container{@include section(40px); background-color: $th1_table_data}
+	.oil-items{font-family: "KlavikaLight-Plain"; text-transform: uppercase; color: #fff; line-height: 42px; padding: 0px 10px;}
+	.oil-item-title{@extend .oil-items;; width: auto; height: 100%; position: relative; float: left; background-color: $th1_table_title}
+	.oil-item-title-a{background-color: mix($th1_table_title, #000, 90%);}
+	.oil-item-data{@extend .oil-items;; width: auto; height: 100%; position: relative; float: left;}
+	.oil-item-data-a{background-color: mix($th1_table_data, #000, 90%);}
+	.oil-item-data span{font-size: 24px;}
+.tile-interna-offer-img-container{width: 30%; height: 100%; position: absolute;}
+.tile-interna-offer-img-container img{width: 100%; height: 100%;}
+
+.tile-interna-selo-img-container{@extend .tile; width: 210px; height: 200px;}
+.tile-interna-selo-img-container img{width: 100%; height: 100%;}
+
+.tile-interna-selos-container{@extend .tile; width: 310px; height: auto; margin-left: 30px; background-color: #666;}
+.tile-interna-selos-box{width: 300px; height: auto; margin: 5px; background-color: #ccc;}
+
+.tile-interna-opcionais-container{@extend .tile; width: 100%; height: auto; background-color: $th1_table_data;}
+.tile-interna-opcionais-title{@include section(40px); background-color: $bp_header}
+.tile-interna-opcionais-title-text{@extend .tile-title-text;}
+.opcionais-item-container{@include rectNU(25%,100px); position: relative; float: left; background-color: $th1_table_title}
+
+.formulario-container{width: 330px; height: auto; position: fixed; right: 50%; margin-right: 130px; top: 160px; background-color: $th1_cinza_formulario; box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3); z-index: 5;}
+.form-title{@include section(60px); background-color: $bp_font_contador; color: #fff; font-family: "BebasNeue"; line-height: 64px; font-size: 34px; text-align: center; letter-spacing: 2px;}
+.form-text-container{@include section(auto); background-color: $bp_mais_claro_1; text-align: center}
+.form-text{width: 100%; height: 40px; position: relative; float: left; margin: 10px 0px; overflow: hidden; color: #fff; font-family: "KlavikaLight-Plain"; text-transform: uppercase;}
+
+.campos{width: 280px; height: 40px; position: relative; float: left; margin-top: 23px; margin-left: 23px; text-align: center; text-transform: uppercase; border-radius: 8px; border: 1px solid #ccc}
+#codempresa{font-family: "KlavikaLight-Plain"; font-size: 17px; color: #666;}
+.campos.cta-car{-webkit-appearance: none; border: 0; cursor: pointer; left: 0;}
+.tile-title-5{@extend .tile-title; background-color: #fff; height: 60px; margin-top: 23px}
+
+@media screen and (max-width: 921px)
+{
+	.header-car{height: 320px; margin-top: 50px;}
+	.header-car-content{width: 300px; margin-left: -150px;}
+	.header-car-image-container{width: 100%; height: 270px;}
+	.header-car-image{height: 300px}
+	.header-car-title-container{height: 150px}
+	.header-car-title-box{width: 280px; height: 80px; margin-left: -150px; margin-top: -40px;}
+	.header-car-title-a{font-size: 14px;}
+	.header-car-title-b{font-size: 30px}
+	.arrow-down-above-car{bottom: -30px; margin-right: -30px; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 30px solid #344b5f;}
+
+	.car-info-container{margin-top: 0px}
+	.car-info-content-container{width: 300px; margin-left: -150px}
+	.car-info-content-container-right{width: 100%; margin-bottom: 20px; padding-bottom: 40px;}
+	.tile-interna-offer-img-container{display: none}
+	.tile-interna-offer-info-list-container{width: 100%}
+	.tile-interna-selos-container{margin-left: 0px; width: 300px}
+	.tile-interna-selo-img-container{left: 50%; margin-left: -105px;}
+	.opcionais-item-container{width: 50%}
+
+	.formulario-container{display: none}
+}

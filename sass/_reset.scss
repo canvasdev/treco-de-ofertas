@@ -1,3 +1,7 @@
+input:focus, textarea:focus, span:focus, {outline: none;}
+a{decoration: none}
+::-webkit-input-placeholder{text-align: center; font-family: "KlavikaLight-Plain"; text-transform: uppercase;}
+
 button,input,select,textarea {color: #222;}
 html {font-size: 1em; line-height: 1.4;}
 ::-moz-selection {background: #b3d4fc;text-shadow: none;}
